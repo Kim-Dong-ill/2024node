@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="inpWrap">
+      <input type="text" class="inp" />
+      <button class="btn1">오늘의 할일</button>
+    </div>
+    <ul class="viewData">
+      <!-- <li class="viewList">
+        <div class="txt">자바스크립트</div>
+        <div class="iconWrap">
+          <a href="#"><i class="fa-solid fa-check"></i></a>
+          <a href="#"><i class="fa-solid fa-trash"></i></a>
+        </div>
+      </li> -->
+    </ul>
+
+    <script>
+      let viewElm = document.querySelector(".viewData");
+      //   document.querySelectorAll("body > div.viewData")[0]
+      //   document.getElementsByClassName("viewData")[0]
+
+      let btnElm = document.querySelector(".btn1"); //입력 버튼
+      let inpElm = document.querySelector(".inp"); //input text
+
+      let listData = [
+        // { title: "스크립트", check: true },
+        // { title: "자바", check: false },
+      ];
+
+      //엔터칠때 작동
+
+      //입력 버튼 클릭할때
+      btnElm.addEventListener("click", function () {
+        if (inpElm.value != "") {
+          console.log(inpElm.value);
+          let value = { title: inpElm.value, check: false };
+          listData.push(value);
+
+          //localStorage에 json데이터의 string으로 업데이트
+          let valueData = JSON.stringify(listData);
+          console.log(valueData);
+
+          localStorage.setItem("todoData", valueData); //json형태의 string으로 적어야함
+
+          view();
+          inpElm.value = ""; //input text 초기화
+          inpElm.focus();
+        } else {
+          alert("오늘의 할 일을 입력하세요.");
+        }
+      });
+
+      //text += 부분 함수화
+      function view() {
+        if (localStorage.length > 0) {
+          let localData = localStorage.getItem("todoData");
+          console.log(JSON.parse(localData));
+          listData = JSON.parse(localData);
+        }
+
+        text = "";
+        for (let i = 0; i < listData.length; i++) {
+          if (listData[i].check) {
+            text += '<li class="viewList active">';
+          } else {
+            text += '<li class="viewList">';
+          }
+
+          text += '    <div class="txt">' + listData[i].title + "</div>";
+          text += '    <div class="iconWrap">';
+
+          if (listData[i].check) {
+            text +=
+              '    <a href="#" onclick="check(' +
+              i +
+              ')"><i class="fa-regular fa-square-check"></i></a>';
+          } else {
+            text +=
+              '    <a href="#" onclick="check(' +
+              i +
+              ')"><i class="fa-regular fa-square"></i></a>';
+          }
+
+          text +=
+            '    <a href="#" onclick="del(' +
+            i +
+            ')"><i class="fa-solid fa-trash"></i></a>';
+          text += "    </div>";
+          text += "</li>";
+        }
+        viewElm.innerHTML = text;
+      }
+      view();
+
+      //삭제버튼 on클릭
+      function del(index) {
+        listData.splice(index, 1);
+
+        //localStorage에 json데이터의 string으로 업데이트
+        let valueData = JSON.stringify(listData);
+        console.log(valueData);
+
+        localStorage.setItem("todoData", valueData); //json형태의 string으로 적어야함
+
+        view();
+      }
+
+      //check box 클릭
+      function check(index) {
+        listData[index].check = !listData[index].check;
+
+        //localStorage에 json데이터의 string으로 업데이트
+        let valueData = JSON.stringify(listData);
+        console.log(valueData);
+
+        localStorage.setItem("todoData", valueData); //json형태의 string으로 적어야함
+
+        view();
+      }
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

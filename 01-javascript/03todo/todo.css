@@ -1,0 +1,50 @@
+@import url(/globalcss/global.css);
+.body {
+  height: 100%;
+}
+
+#todoWrap {
+  border: 1px solid #000;
+  width: 500px;
+  padding: 20px;
+}
+#todoWrap .inputData {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+#todoWrap .inputData .inputTag {
+  flex: 1;
+}
+#todoWrap .viewWrap {
+  border: 1px solid #000;
+  margin-bottom: 15px;
+}
+#todoWrap .viewWrap .table .vv {
+  max-width: 150px;
+}
+#todoWrap .deletAll {
+  width: 100%;
+}
+#todoWrap .deletAll .deletAllWarning {
+  font-size: 12px;
+  text-align: end;
+}
+#todoWrap .deletAll .deletAllWarning span {
+  font-weight: bold;
+  font-size: 14px;
+}
+#todoWrap .deletAll .deletAllWarning span.secDel {
+  font-weight: bolder;
+  font-size: 16px;
+  text-decoration: underline;
+}
+#todoWrap .deletAll .deAllWrap {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.text-line-through {
+  border: 10px solid #000;
+}/*# sourceMappingURL=todo.css.map */

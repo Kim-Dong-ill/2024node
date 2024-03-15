@@ -1,0 +1,58 @@
+@import url(/globalcss/global.css);
+
+.body {
+  height: 100%;
+}
+
+#todoWrap {
+  border: 1px solid #000;
+  width: 500px;
+  padding: 20px;
+  .inputData {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    .inputTag {
+      flex: 1;
+    }
+  } //inputData
+  .viewWrap {
+    border: 1px solid #000;
+    margin-bottom: 15px;
+    .table {
+      .vv {
+        max-width: 150px;
+      }
+      tr:hover {
+        // border: 2px solid #000;
+      }
+      .active {
+        // background-color: #afafaf !important;
+      }
+    }
+  }
+  .deletAll {
+    width: 100%;
+    .deletAllWarning {
+      font-size: 12px;
+      text-align: end;
+      span {
+        font-weight: bold;
+        font-size: 14px;
+      }
+      span.secDel {
+        font-weight: bolder;
+        font-size: 16px;
+        text-decoration: underline;
+      }
+    }
+    .deAllWrap {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+    }
+  }
+} //todoWrap
+.text-line-through {
+  border: 10px solid #000;
+}

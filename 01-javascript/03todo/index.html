@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="./todo.css" />
+  </head>
+
+  <body>
+    <header>
+      <!-- place navbar here -->
+    </header>
+
+    <main>
+      <div id="todoWrap">
+        <div class="viewData">
+          <div class="inputData">
+            <input type="text" class="inputTag" onkeypress="enter(event)" />
+            <button class="inputBtn btn btn-outline-dark">입력</button>
+          </div>
+          <div class="inputErr text-danger">
+            <!-- err text -->
+          </div>
+          <div class="viewWrap">
+            <table class="table table-hover">
+              <thead>
+                <tr class="table-dark">
+                  <th scope="col">#</th>
+                  <th scope="col">할일</th>
+                  <th scope="col">Check</th>
+                  <th scope="col">Trash</th>
+                </tr>
+              </thead>
+              <!-- list start-->
+              <tbody class="tableB">
+                <!-- <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr> -->
+              </tbody>
+              <!-- list end -->
+            </table>
+          </div>
+          <!-- viewWrap end -->
+        </div>
+        <div class="deletAll">
+          <div class="deletAllWarning text-danger"></div>
+          <div class="deAllWrap">
+            <input
+              type="text"
+              class="deletAllInput d-none"
+              onkeypress="delAll(event)"
+            />
+            <button class="deletAllBtn btn btn-danger">전체 삭제</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <!-- place footer here -->
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- script start -->
+    <script>
+      let dummy = [];
+
+      let inputBtnElm = document.querySelector(".inputBtn"); //input button
+      let tableBElm = document.querySelector(".tableB"); //List view
+      let inputTagElm = document.querySelector(".inputTag"); //input text
+      let inputErrElm = document.querySelector(".inputErr"); //input err
+      let deletAllInputElm = document.querySelector(".deletAllInput"); //deletAllInput
+      let deletAllBtnElm = document.querySelector(".deletAllBtn"); //deletAllBtn
+      let deletAllWarningElm = document.querySelector(".deletAllWarning"); //deletAllWarning
+
+      // input enter 입력시 클릭
+      function enter(e) {
+        if (e.code == "Enter") {
+          inputBtnElm.click();
+        }
+      }
+
+      //deletAll enter 입력시 클릭
+      function delAll(e) {
+        if (e.code == "Enter") {
+          deletAllBtnElm.click();
+        }
+      }
+
+      //input btn 클릭시
+      inputBtnElm.addEventListener("click", function () {
+        if (inputTagElm.value.trim() != "") {
+          console.log("오늘 할 일 : " + inputTagElm.value);
+
+          let value = { title: inputTagElm.value, check: false };
+          dummy.push(value);
+
+          let valueData = JSON.stringify(dummy);
+          localStorage.setItem("todolist", valueData);
+
+          inputTagElm.value = "";
+          inputTagElm.focus();
+          view();
+        } else {
+          inputErrElm.innerHTML = "오늘의 할 일을 입력하세요!!";
+          inputTagElm.focus();
+        }
+      });
+
+      //view함수
+      function view() {
+        if (localStorage.length > 0) {
+          localData = localStorage.getItem("todolist");
+          dummy = JSON.parse(localData);
+        }
+
+        let text = ``;
+        for (let i = 0; i < dummy.length; i++) {
+          //table active시 class 변경
+          if (dummy[i].check == true) {
+            text += `<tr class="tableBody table-active">`;
+          } else {
+            text += `<tr class="tableBody">`;
+          }
+          text += `<th scope="row">${i + 1}</th>`;
+          text += `<td class="vv text-truncate d-line-block">${dummy[i].title}</td>`;
+
+          // check 박스 true / false
+          if (dummy[i].check == true) {
+            text += `<td><i class="fa-solid fa-square-check" onclick="check(${i})")"></i></td>`;
+          } else {
+            text += `<td><i class="fa-regular fa-square-check" onclick="check(${i})")"></i></td>`;
+          }
+
+          text += `<td><i class="fa-regular fa-trash-can" onclick="del(${i})"></i></td>`;
+          text += `</tr>`;
+        }
+        tableBElm.innerHTML = text;
+        console.log("새로고침 완료!");
+      }
+
+      //삭제버튼 클릭시
+      function del(index) {
+        console.log(index + "번째 삭제");
+        dummy.splice(index, 1);
+
+        let localData = JSON.stringify(dummy);
+        localStorage.setItem("todolist", localData);
+        view();
+      }
+
+      //check box 클릭시
+      function check(index) {
+        dummy[index].check = !dummy[index].check;
+
+        if (dummy[index].check == true) {
+          console.log($(".fa-solid"));
+          $(".fa-solid").attr(
+            "class",
+            "fa-solid fa-square-check text-line-through"
+          );
+        } else {
+        }
+
+        let localData = JSON.stringify(dummy);
+        localStorage.setItem("todolist", localData);
+        console.log(index + "번째 체크박스 클릭");
+        view();
+      }
+
+      //전체 삭제
+      if (
+        deletAllBtnElm.addEventListener("click", function () {
+          $(".deletAllInput").attr("class", "deletAllInput d-inline-block");
+          deletAllWarningElm.innerHTML =
+            '전체 삭제를 원하시면 <span>"삭제"</span> 를 입력하세요.';
+          deletAllInputElm.focus();
+          if (deletAllInputElm.value.trim() == "삭제") {
+            dummy = [];
+
+            let localData = JSON.stringify(dummy);
+            localStorage.setItem("todolist", localData);
+
+            deletAllInputElm.value = "";
+            console.log("전체 삭제 완료!!");
+          } else if (deletAllInputElm.value == "") {
+          } else {
+            deletAllWarningElm.innerHTML =
+              '정확히 <span class="secDel">"삭제"</span> 만 입력하세요.';
+          }
+          view();
+        })
+      );
+
+      view(); //한번 실행
+    </script>
+    <!-- script end -->
+
+    <!-- jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>
