@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/globalcss/global.css" />
+    <style>
+      body {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        width: 300px;
+        height: 300px;
+        background-color: coral;
+        position: relative;
+      }
+      .cir {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+      }
+
+      .cir:hover {
+        border: 3px solid #000;
+      }
+      .cir:hover .circle1 {
+      }
+      .cir:hover .circle1 {
+      }
+
+      .circle1 {
+        background-color: skyblue;
+      }
+      .circle2 {
+        background-color: pink;
+      }
+      .circle3 {
+        background-color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="cir circle1">1</div>
+      <div class="cir circle2">2</div>
+      <div class="cir circle3">3</div>
+    </div>
+  </body>
+</html>

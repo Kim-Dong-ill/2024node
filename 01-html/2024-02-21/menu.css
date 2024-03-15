@@ -1,0 +1,39 @@
+@import url(/globalcss/global.css);
+.outline .header {
+  border: 2px solid #b23131;
+  width: 200px;
+  height: 800px;
+  margin-top: 30px;
+}
+.outline .header .menu-click img {
+  border: 1px solid #000;
+  width: 80px;
+  position: absolute;
+  left: 200px;
+}
+.outline .header .menu {
+  border: 1px solid #000;
+  margin: 20px;
+}
+.outline .header .menu :hover .sub-menu {
+  border: 1px solid #000;
+  display: block;
+}
+.outline .header .menu .main-menu {
+  position: relative;
+  margin-bottom: 50px;
+}
+.outline .header .menu .main-menu a {
+  color: #b23131;
+  font-size: 20px;
+  font-weight: bold;
+}
+.outline .header .menu .main-menu .sub-menu {
+  margin-left: 23px;
+  position: absolute;
+  width: 80%;
+}
+.outline .header .menu .main-menu .sub-menu li a {
+  font-size: 15px;
+  color: #000;
+}/*# sourceMappingURL=menu.css.map */

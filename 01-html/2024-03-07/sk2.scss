@@ -1,0 +1,52 @@
+HTML CSS JSResult Skip Results Iframe EDIT ON body {
+  padding: 30px;
+}
+
+.swiper-bottom {
+  margin-top: 30px;
+  overflow: hidden;
+  width: 600px;
+  border: 1px solid #e0e0e0;
+}
+
+.custom_slide_wrap {
+  width: 600px;
+}
+.swiper-pagination-custom {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+}
+.custom_bullet {
+  width: 154px;
+  margin-right: 30px;
+  padding: 17px 0 19px 0;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s;
+}
+.custom_bullet:last-child {
+  margin-right: 0;
+}
+
+.custom_bullet span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.custom_bullet:hover span {
+  color: teal;
+}
+
+.swiper-pagination-custom-bullet-active {
+  background-color: teal;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid teal;
+}
+
+.swiper-pagination-custom-bullet-active span {
+  color: #fff;
+}
+.swiper-pagination-custom-bullet-active:hover span {
+  color: #fff;
+}

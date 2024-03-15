@@ -1,0 +1,86 @@
+@import url(/globalcss/global.css);
+body {
+  justify-content: center;
+  background-image: url(/2024-02-20/img/sj271685610125602.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.outline {
+  border: 1px solid #000;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.outline .inner {
+  border: 1px solid #000;
+  width: 1280px;
+  height: 83px;
+  display: flex;
+}
+.outline .inner .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.outline .inner .header .logo {
+  align-items: center;
+  display: flex;
+}
+.outline .inner .header .logo p {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(97, 53, 53);
+}
+.outline .inner .header .menu {
+  border: 1px solid #000;
+  display: flex;
+}
+.outline .inner .header .menu .main-menu {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(97, 53, 53);
+  border: 1px solid #000;
+  width: 530px;
+}
+.outline .inner .header .menu .main-menu ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.outline .inner .header .menu .main-menu ul li {
+  border: 1px solid #000;
+  height: 80px;
+}
+.outline .inner .header .menu .main-menu ul li a {
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+.outline .inner .header .menu .sub-menu {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(97, 53, 53);
+  border: 1px solid #000;
+  width: 100%;
+  height: 180px;
+  position: absolute;
+  top: 85px;
+  left: 0;
+  display: flex;
+  justify-content: end;
+}
+.outline .inner .header .menu .sub-menu .smenu {
+  width: 550px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+}
+.outline .inner .header .menu .sub-menu .smenu ul {
+  border: 1px solid #000;
+  padding-top: 40px;
+}
+.outline .inner .header .menu .sub-menu .smenu ul li {
+  height: 35px;
+}/*# sourceMappingURL=index.css.map */

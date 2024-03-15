@@ -1,0 +1,29 @@
+@charset "utf-8";
+@import url(/globalcss/global.css);
+
+.visualtext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.visual {
+  background-color: skyblue;
+}
+.cont-1st .card {
+  transition: 0.35s;
+}
+.cont-1st .cardWrap:hover .card {
+  transform: translate(-10px, -10px);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.cont-1st .card img {
+  height: 150px;
+}
+.const-2st .view {
+  height: 500px;
+}
+
+.bg-gray {
+  background-color: #eee;
+}

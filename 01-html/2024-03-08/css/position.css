@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+@import url(/globalcss/global.css);
+
+body{
+    background-image: url(../img/bg_grid.gif);
+}
+div{
+    width: 100px;
+    height: 100px;
+}
+
+.box1{
+    background-color: skyblue;
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+.box2{
+    background-color: pink;
+    position: relative;
+}
+.box3{
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.box4{
+    background-color: green;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+.boxWrap{
+    width: 300px;
+    height: 300px;
+    background-color: gold;
+}
+.box5{
+    background-color: blueviolet;
+}

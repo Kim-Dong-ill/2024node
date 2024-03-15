@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/globalcss/global.css">
+    <style>
+
+        body{
+            /* background-color: pink; */
+        }
+
+        .bannerWrap{
+            background-color: skyblue;
+            height: 100vh;
+            width: 100%;
+            min-height: 768px;
+            min-width: 1140px;
+            background-image: url(img/new_main_visual_bg04.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            /* background-position: center; */
+        }
+
+        .banner{
+            width: 1140px;
+            border: 1px solid #fff;
+            margin: 0 auto;
+            height: 100%;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3{
+            font-size: 50px;
+            line-height: 55px;
+        }
+        
+        p.title{
+            font-size: 20px;
+        }
+        .btn{
+            border: 1px solid #ffffff;
+            border-radius: 25px;
+            width: 150px;
+            height: 50px;
+            display: block;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            font-weight: bold;
+
+            border: 1px solid #fff;
+            transition: .35s;
+        }
+
+        a.btn.active{
+            background-color: #fff;
+            color: black;
+        }
+
+        a.btn:hover{
+            background-color: #fff;
+            color: black;
+        }
+        .menuWrap{
+            min-width: 1140px;
+            color: #fff;
+            display: flex;
+            /* justify-content: center; */
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            gap: 10px;
+            position: absolute;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        .mb10{margin-bottom: 10px !important;}
+        .mb20{margin-bottom: 20px !important;}
+    </style>
+</head>
+<body>
+    
+    <div class="bannerWrap">
+        <div class="banner"> 
+            <div class="textWrap">
+                <h3 class="mb20">Lorem ipsum <br> dolor sit amet.</h3>
+                <p class="title mb10">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus, et?</p>
+                <a class="btn" href="">자세히 보기</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="menuWrap">
+        <a href="#" class="btn">home</a>
+        <a href="#" class="btn">company</a>
+        <a href="#" class="btn">product</a>
+        <a href="#" class="btn">home</a>
+    </div>
+
+    <div style="height: 1000px;">
+
+    </div>
+
+</body>
+</html>

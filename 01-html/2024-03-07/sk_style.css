@@ -1,0 +1,171 @@
+@import url(/globalcss/global.css);
+.back01 {
+  background-image: url(img/sk_background_01.jpg);
+}
+
+.back02 {
+  background-image: url(img/sk_background_02.jpg);
+}
+
+.back03 {
+  background-image: url(img/sk_background_03.jpg);
+}
+
+.back04 {
+  background-image: url(img/sk_background_04.jpg);
+}
+
+.back05 {
+  background-image: url(img/sk_background_05.jpg);
+}
+
+.header {
+  z-index: 99999;
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .header-inner {
+  height: 100px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.header .header-inner .left-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 50%;
+}
+.header .header-inner .left-menu .main-menu {
+  width: 80%;
+}
+.header .header-inner .left-menu .main-menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+.header .header-inner .left-menu .main-menu ul li {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .header-inner .left-menu .main-menu ul li a {
+  color: #fff;
+  font-size: 1vw;
+  font-weight: bold;
+}
+.header .header-inner .menu-bar {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: end;
+}
+.header .header-inner .menu-bar .menu-bar-btn button {
+  background-color: #555;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+.header .header-inner .menu-bar .menu-bar-btn :nth-child(2) {
+  margin-left: 20px;
+}
+.header .header-inner .menu-bar .menu-bar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 32px;
+}
+.header .header-inner .menu-bar .menu-bar-icon div:nth-child(2) {
+  margin-left: 22.8px;
+}
+.header .header-inner .menu-bar .menu-bar-icon div:nth-child(3) {
+  margin-left: 22.8px;
+}
+.header .header-inner .menu-bar .menu-bar-icon i {
+  width: 32px;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container .contents {
+  padding: 0 5%;
+  color: #fff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: left;
+}
+.container .contents .content-inner {
+  max-width: 1200px;
+  padding: 0 100px;
+}
+.container .contents .content-inner .content-title {
+  width: 1200px;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 4.5rem;
+  margin-bottom: 24px;
+}
+.container .contents .content-inner .content-sub {
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  margin-bottom: 120px;
+}
+
+.gnb {
+  width: 100%;
+  position: absolute;
+  bottom: 60px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gnb .gnb-inner {
+  width: 78%;
+}
+.gnb .gnb-inner ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.gnb .gnb-inner ul li a {
+  margin-left: 60px;
+  color: #fff;
+}
+.gnb .gnb-inner ul li a :nth-child(1) {
+  font-size: 16px;
+  font-weight: bold;
+}
+.gnb .gnb-inner ul li a :nth-child(2) {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.gnb .gnb-inner ul li.on a:nth-child(1) {
+  color: red !important;
+}
+
+.custom-bullet {
+  width: 150px;
+  background-color: #fff;
+}/*# sourceMappingURL=sk_style.css.map */

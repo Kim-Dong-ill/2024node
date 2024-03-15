@@ -1,0 +1,117 @@
+@charset "utf-8";
+@import url(/globalcss/global.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+}
+.container{
+    height: 100%;
+}
+.swiper .bgImage {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.swiper .bgImage.bgImg01 {
+  background-image: url(../img/new_main_visual_bg01.jpg);
+}
+.swiper .bgImage.bgImg02 {
+  background-image: url(../img/new_main_visual_bg02.jpg);
+}
+.swiper .bgImage.bgImg03 {
+  background-image: url(../img/new_main_visual_bg03.jpg);
+}
+.swiper .bgImage.bgImg04 {
+  background-image: url(../img/new_main_visual_bg04.jpg);
+}
+
+.txtWrap {
+  width: 1240px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+.hd{
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+.hd h1{
+    color: white;
+}
+.hd .gnbWrap ul{
+    display: flex;
+    height: 100%;
+}
+.gnbWrap li{
+}
+.gnbWrap li a{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+.utilWrap ul{
+    display: flex;
+    height: 100%;
+    color: white;
+}
+.utilWrap li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    color: white;
+}
+.utilWrap a{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    font-weight: bold;
+    color: white;
+}
+.utilWrap i{
+    color: white !important;
+}
+
+.cardWrap{
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.3);
+}
+.cardWrap img{
+    display: block;
+    width: 100%;
+    transition: 0.35s;
+}
+.cardWrap .textWrap{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(1, 41, 93, 0.56);
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}
+.cardWrap:hover img{
+    transform: scale(1.1);
+}
+.colorGray{
+    background-color: #ECEFF5;
+}

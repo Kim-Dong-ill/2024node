@@ -1,0 +1,87 @@
+@import url(/globalcss/global.css);
+
+body{
+    justify-content: center;
+    background-image: url(/2024-02-20/img/sj271685610125602.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.outline{
+    border: 1px solid #000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .inner{
+        border: 1px solid #000;
+        width: 1280px;
+        height: 83px;
+        display: flex;
+        // align-items: center;
+        .header{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            .logo{
+                align-items: center;
+                display: flex;
+                p{
+                    font-size: 25px;
+                    font-weight: bold;
+                    color: rgb(97, 53, 53);
+                }
+            }
+            .menu{
+                border: 1px solid #000;
+                display: flex;
+                .main-menu{
+                    font-size: 25px;
+                    font-weight: bold;
+                    color: rgb(97, 53, 53);
+                    border: 1px solid #000;
+                    width: 530px;
+                    ul{
+                        height: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        li{
+                            border: 1px solid #000;
+                            height: 80px;
+                            a{
+                                height: inherit;
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+                .sub-menu{
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: rgb(97, 53, 53);
+                    border: 1px solid #000;
+                    width: 100%;
+                    height: 180px;
+                    position: absolute;
+                    top: 85px;
+                    left: 0;
+                    display: flex;
+                    justify-content: end;
+                    .smenu{
+                        width: 550px;
+                        border: 1px solid #000;
+                        display: flex;
+                        justify-content: space-between;
+                        ul{
+                            border: 1px solid #000;
+                            padding-top: 40px;
+                            li{
+                                height: 35px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
