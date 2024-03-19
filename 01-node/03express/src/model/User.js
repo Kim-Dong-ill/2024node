@@ -5,12 +5,6 @@ const userSchema = mongoose.Schema({
     require: true,
   },
   age: {
-    type: Number,
-  },
-  location: {
-    type: String,
-  },
-  gender: {
     type: String,
     require: true,
   },
