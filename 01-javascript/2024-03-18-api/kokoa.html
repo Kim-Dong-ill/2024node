@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kokoa search</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container py-3">
+      <form class="search-form d-flex gap-3">
+        <input
+          type="text"
+          class="inp form-control"
+          placeholder="검색어를 입력하세요..."
+          name="query"
+        />
+        <button class="btn btn-primary">Click</button>
+      </form>
+    </div>
+    <div class="container">
+      <ul class="lists">
+        <a href=""></a>
+      </ul>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+
+    <!-- script -->
+    <script>
+      //global init
+      const auth = "KakaoAK 38b3bdb221692744dfc1e35ea4a71888";
+      const url = "https://dapi.kakao.com/v2/search/web";
+
+      //function
+      function onSubmit(e) {
+        e.preventDefault();
+        let query = $(".inp").val().trim();
+        // let query = $(this).find("input[name=query]").val();
+        //자기 자신(search-form) 에서 name이 query인 얘를 찾느다.
+        console.log(query);
+
+        if (query != "") {
+          axios
+            .get(url, {
+              params: { query: query }, //기본 문법인 query:  ,Authorization:  에 변수 넣아준다.
+              headers: { Authorization: auth },
+            })
+            .then(onSuccess);
+        } else {
+          $(".inp").focus(); //input에 커서 포커스
+        }
+      }
+
+      function onSuccess(res) {
+        console.log(res.data);
+        let v = res.data.documents;
+        // console.log(v);
+
+        let text = "";
+        for (let i = 0; i < v.length; i++) {
+          //   text += `<li>${v[i].title}</li>`;
+          text += `<li>`;
+          text += `<h4>${v[i].title}</h4>`;
+          text += `<p>${v[i].contents}</p>`;
+          text += `<p>${v[i].datetime}</p>`;
+          text += `<a href="${v[i].url}">${v[i].url}</a>`;
+          text += `</li>`;
+        }
+        console.log(text);
+        $(".lists").html(text);
+      }
+
+      //event
+      $(".search-form").submit(onSubmit);
+    </script>
+  </body>
+</html>

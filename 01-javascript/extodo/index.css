@@ -1,0 +1,24 @@
+@import url(/globalcss/global.css);
+.container {
+  border: 1px solid #000;
+  width: 500px;
+  margin: 60px auto;
+}
+.container .inputWrap {
+  display: flex;
+}
+.container .inputWrap .inputText {
+  flex: 1;
+}
+.container .viewWrap .viewData li:hover,
+.container .viewWrap .viewData li.viewList.active {
+  background-color: #afc27a;
+}
+.container .viewWrap .viewData li {
+  display: flex;
+  justify-content: space-between;
+}
+.container .viewWrap .viewData li .viewIcon {
+  display: flex;
+  gap: 10px;
+}/*# sourceMappingURL=index.css.map */

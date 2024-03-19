@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="/globalcss/global.css">
+    <style>
+        .main{
+            border: 1px solid #000;
+            width: 500px;
+            min-height: 300px;
+            margin: 100px auto;
+            padding: 50px;
+            position: relative;
+        }
+        .vList{
+            width: 200px;
+            /* height: 100%; */
+            /* border: 1px solid #000; */
+        }
+        .vList li{
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #000;
+            margin: 5px 0;
+        }
+
+        .allDelet{
+            position: absolute;
+            bottom: 20px;
+            right: 50px;
+        }
+        .number{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <input type="text" class="number" value="" placeholder="문자 입력" >
+        <button class="btn">문자 입력</button>
+        <div class="err">
+        </div>
+        <div class="vList">
+        </div>
+
+        <!-- 전체 삭제 버튼 -->
+        <div>
+            <button class="allDelet">전체삭제</button>
+        </div>
+    </div>
+
+    <script>
+            const numElm = document.getElementsByClassName('number')[0] //입력값
+            const btnElm = document.getElementsByClassName('btn')[0]    //버튼
+            const vList = document.getElementsByClassName('vList')[0]   //리스트 위치
+            const errElm = document.getElementsByClassName('err')[0]    //경고창 위치
+            const Dbtn = document.getElementsByClassName('Dbtn')[0]    //개별삭제 버튼
+            const allDelet = document.getElementsByClassName('allDelet')[0]    //전체삭제 버튼
+
+            let viewList = ["파일","편집","선택 영역","보기","이동","실행","터미널"];    //초기 배열 생성
+
+            //버튼 클릭 event
+            btnElm.addEventListener("click",function(){
+                
+                writeList();
+
+            })
+            //버튼 클릭 event end
+
+            //엔터 입력시 event
+            numElm.addEventListener("keypress", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault(); // 기본 엔터 이벤트 제거
+                    btnElm.click(); // 버튼 클릭과 동일한 효과를 내기 위해 버튼 클릭 호출
+                    }
+                });
+
+            //개별 삭제
+            function vListDelet(index){
+                console.log(`${index}번 데이터 삭제완료`)
+                viewList.splice(index,1)
+                
+                viewData();
+            }
+
+            //전체 삭제
+            allDelet.addEventListener("click",function(){
+                if(confirm("전체삭제 하시겠습니까?") == true){
+
+                    viewList =[];
+                    viewData();
+
+                    alert("삭제 되었습니다.")
+                    console.log("전체 삭제")
+                }else{
+                    console.log("전체삭제 취소");
+                }
+            })
+
+
+            // 데이터 화면 새로고침 함수
+            function viewData(){
+                numElm.value =""
+        
+                    let textLine =""
+                    for(let i=0; i<viewList.length; i++){
+                        // console.log(viewList[i])
+                        textLine += `<li><div>${viewList[i]}</div><button class="Dbtn" onclick="vListDelet(${i})">삭제</button></li>`
+                    }
+                    
+                    vList.innerHTML = textLine
+                    errElm.innerHTML = "성공!!"
+                    errElm.style.color = "green"
+            }
+
+            //데이터 입력시 List 작성 함수
+            function writeList(){
+                console.log(typeof numElm.value);
+                if(isNaN(numElm.value.trim())){     //입력이 문자열이라면
+
+                    console.log(`입력값 : ${numElm.value}`)
+        
+                    viewList.push(numElm.value)     //작성값 밀어넣기
+                    
+                    viewData();
+
+                }else{      //에러창
+                    numElm.value = ""
+                    errElm.innerHTML ="문자만 입력할 수 있습니다."
+                    errElm.style.color = "red"
+                }
+            }
+
+    </script>
+</body>
+
+</html>

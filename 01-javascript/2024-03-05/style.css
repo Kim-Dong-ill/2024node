@@ -1,0 +1,30 @@
+@import url(/globalcss/global.css);
+#header .row {
+  border: 1px solid #000;
+  height: 50px;
+  background-color: rgb(233, 233, 233);
+  align-items: center;
+}
+#header .row :nth-child(1) {
+  flex: 7;
+}
+#header .row :nth-child(2) {
+  flex: 1;
+}
+#header .row :nth-child(3) {
+  flex: 1;
+}
+#header .row :nth-child(4) {
+  flex: 1;
+}
+#header .row :nth-child(5) {
+  flex: 1;
+}
+#header .row :nth-child(6) {
+  flex: 1;
+}
+
+#sub-title {
+  border: 1px solid #000;
+  display: flex;
+}/*# sourceMappingURL=style.css.map */

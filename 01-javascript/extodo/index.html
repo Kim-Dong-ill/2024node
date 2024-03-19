@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="inputWrap">
+        <input type="text" class="inputText" />
+        <button class="inputBtn">입력</button>
+      </div>
+      <div class="viewWrap">
+        <ul class="viewData">
+          <li class="viewList">
+            <div>할일</div>
+            <div class="viewIcon">
+              <div><a href="">isDone</a></div>
+              <div><a href="">삭제</a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      let todo = [
+        {
+          title: "자바스크립트",
+          cheack: false,
+        },
+        {
+          title: "피그마",
+          cheack: false,
+        },
+        {
+          title: "html",
+          cheack: false,
+        },
+        {
+          title: "node.js",
+          cheack: true,
+        },
+      ];
+    </script>
+
+    <script>
+      let viewList = document.querySelector(".viewData");
+      let text = `<li class="viewList">
+            <div>할일</div>
+            <div class="viewIcon">
+              <div><a href="">Cheack</a></div>
+              <div><a href="">Delete</a></div>
+            </div>
+          </li>`;
+      for (let i = 0; i < todo.length; i++) {
+        if (todo[i].cheack == true) {
+          text += `<li class="viewList active"`;
+        } else {
+          text += `<li class="viewList"`;
+        }
+        text += `
+            <div>${todo[i].title}</div>
+            <div class="viewIcon">`;
+        if (todo[i].cheack == true) {
+          text += `<div><a href="">완료</a></div>`;
+        } else {
+          text += `<div><a href="">미완료</a></div>`;
+        }
+        text += `<div><a href="">삭제</a></div>
+            </div>
+          </li>`;
+      }
+      viewList.innerHTML = text;
+    </script>
+
+    <!-- jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

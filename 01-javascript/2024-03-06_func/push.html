@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .vList li{
+            display: flex;
+            gap: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text" class="todo" value="" placeholder="오늘의 할일을 입력하세요">
+    <button class="btn">오늘의 할일</button>
+
+    <ul class="vList">
+    </ul>
+
+    <button class="allDel">전체 삭제</button>
+
+    <script>
+
+        const todoElm = document.getElementsByClassName('todo')[0]
+        const btnElm = document.getElementsByClassName('btn')[0]
+        const vListElm = document.getElementsByClassName('vList')[0]
+        const aDelElm = document.getElementsByClassName('allDel')[0]
+        let viewList = ["이순신","홍길동","곽범"];
+
+        // btnElm.addEventListener("click",function(){})
+        btnElm.addEventListener("click",function(){ //버튼 클릭
+            // alert(todoElm.value)
+
+            if(todoElm.value != ''){
+                viewList.push(todoElm.value)    //작성값을 List에 push
+                viewData();
+            }else{
+                alert("할일 입력")
+            }
+            
+        })
+
+        function vListDel(index){
+            console.log("삭제완료 : " + index)
+            viewList.splice(index,1)
+
+            viewData();
+        }
+
+
+        function viewData(){
+            todoElm.value = ""      //작성후 imput값 공백처리
+
+            let textList =""    //초기값
+
+            if(viewList.length > 0){
+
+                for(let i=0; i<viewList.length; i++){
+                    textList = textList + `<li><div>${viewList[i]}</div> <div class="del" onclick="vListDel(${i})">삭제</div></li>`     //작성한 viewList for문 돌려서 text에 저장
+                    // textList += `<li>${viewList[i]}</li>`
+                }
+    
+            }else{
+                textList = "오늘은 쉬는날"
+            }
+            
+            console.log(textList);
+            vListElm.innerHTML = textList   //저장된 text값 문서에 ul>li로 출력
+
+        }
+
+        aDelElm.addEventListener("click",function(){
+            viewList = [];
+            viewData();
+        })
+
+        viewData();
+
+
+        // document.write(textList)
+    </script>
+</body>
+</html>

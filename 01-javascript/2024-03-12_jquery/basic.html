@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+      position: relative;
+      transition: 0.35s;
+      top: 0;
+      left: 0;
+    }
+    .box.active {
+      background-color: pink;
+      top: 100px;
+      left: 200px;
+      scale: 2;
+    }
+  </style>
+  <body>
+    <button class="btn">추가</button>
+    <button class="btn_out">제거</button>
+    <div class="box"></div>
+
+    <!-- jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- jquery -->
+
+    <script>
+      //   document
+      //     .getElementsByClassName("btn")[0]
+      //     .addEventListener("click", function () {
+      //       document.querySelector(".box").classList.add("active");
+      //     });
+
+      //   document.querySelector(".btn_out").addEventListener("click", function () {
+      //     document.querySelector(".box").classList.remove("active");
+      //   });
+
+      $(".btn").on("click", function () {
+        $(".box").addClass("active");
+        // let attr = $(".box").attr("class", "box active");
+        // console.log(attr);
+        // $(".box").css("background", "red");
+        // $(".box").css("display", "none");
+      });
+
+      $(".btn_out").click(function () {
+        $(".box").removeClass("active");
+        // $(".box").css("display", "block");
+      });
+
+      document.getElementsByClassName("box")[0].innerHTML = "홍길동";
+
+      let fn = () => {
+        return 1000;
+      };
+      let num = fn();
+      console.log(num);
+    </script>
+
+    <script>
+      let arr = [1, 2, 3];
+      let arrCopy1 = arr;
+      let arrCopy2 = [...arr];
+    </script>
+  </body>
+</html>

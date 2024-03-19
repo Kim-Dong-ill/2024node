@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/globalcss/global.css">
+    <style>
+        .viewList{
+            border: 1px solid #000;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" class="inputList">
+        <button class="btn">입력</button>
+        <div class="viewList"></div>
+    </div>
+    
+
+    <!-- script -->
+
+    <script>
+        const btn = document.getElementsByClassName("btn")[0];          //입력버튼
+        const inputList = document.getElementsByClassName("inputList")[0];      //입력칸
+        const viewList = document.getElementsByClassName("viewList")[0];        //ShowList
+
+        let textList = [];
+
+        btn.addEventListener("click",function(){
+            console.log(`입력값 = ${inputList.value}`)
+
+            textList.push(inputList.value)
+            console.log(textList)
+
+            let text=""
+            for(let i=0; i<textList.length; i++){
+                text = text + `<li><div>${textList[i]}</div></li>`
+
+                viewList.innerHTML = text
+            }
+        })
+    </script>
+
+    <!-- /script -->
+</body>
+</html>

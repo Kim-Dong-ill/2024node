@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script>
+      // let testPro = new Promise(function (res, rej) {
+      //   let sum = 100 + 100;
+      //   res(sum);
+      //   rej(sum);
+      // });
+
+      // testPro
+      //   .then(function (num) {
+      //     console.log("성공했습니다." + num);
+      //   })
+      //   .catch(function (num) {
+      //     console.log("실패했습니다." + num);
+      //   });
+
+      function myDisplayer(some) {
+        document.getElementById("demo").innerHTML = some;
+      }
+
+      let myPromise = new Promise(function (myResolve, myReject) {
+        let x = 0;
+
+        // The producing code (this may take some time)
+
+        if (x == 0) {
+          myResolve("OK");
+        } else {
+          myReject("Error");
+        }
+      });
+
+      myPromise.then(
+        function (value) {
+          myDisplayer(value);
+        },
+        function (error) {
+          myDisplayer(error);
+        }
+      );
+    </script>
+  </body>
+</html>

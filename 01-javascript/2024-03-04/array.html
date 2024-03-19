@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/globalcss/global.css">
+</head>
+<body>
+
+    <ul class="menu">
+        <script>
+            const loca = ["seoul","daegu","inchon"]
+            const locaLink = [
+                "https://www.naver.com/",
+                "https://www.daum.com/",
+                "https://www.korea.com/",
+                "https://www.naver.com/"
+            ]
+
+            for(let i=0; i<loca.length; i++){
+                document.write("<li>")
+                document.write("<a href='"+locaLink[i]+"'>")
+                document.write(loca[i])
+                document.write("</a>")
+                document.write("</li>")
+
+                // document.write(` <li><a href='${locaLink}'>${loca[i]}</a></li> `)
+            }
+        </script>
+
+        <script>
+            let num=0;
+            function number(money){
+                let num = money * 2;
+                return num;
+            }
+            let result = number(500);
+            console.log("돈 =" +result);
+        </script>
+
+        <script>
+            const arr =[10,20,30,40,50,60,70]
+
+            function sum(){
+                let numSum = 0;
+                for(let i=0; i<arr.length; i++){
+                    numSum += arr[i]
+                }
+                return numSum;
+            }
+            let num1 =sum()
+            document.write("숫자 :"+num1)
+        </script>
+
+        <script>
+            let str = "50";
+            console.log("str = "+typeof(str))
+            let n= parseInt(str)
+            console.log("n = "+typeof(n));
+        </script>
+    </ul>
+</body>
+</html>

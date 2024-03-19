@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table class="table"></table>
+
+    <script type="module">
+      import car from "./car.js";
+
+      let text =
+        "<tr><td>번호</td><td>이름</td><td>색상</td><td>스피드</td></tr>";
+      //   let text = "";
+      for (let i = 0; i < car.length; i++) {
+        // text = text + "<tr>";
+        // text = text + "<td>" + car[i].name + "</td>";
+        // text = text + "<td>" + car[i].color + "</td>";
+        // text = text + "<td>" + car[i].start() + "</td>";
+        // text = text + "</tr>";
+
+        text += `<tr>
+                <td>${i + 1}</td>
+                <td>${car[i].name}</td>
+                <td>${car[i].color}</td>
+                <td>${car[i].start()}</td>
+                </tr>
+                `;
+      }
+
+      console.log(car.name);
+      document.querySelector(".name");
+      document.querySelector(".table").innerHTML = text;
+    </script>
+  </body>
+</html>

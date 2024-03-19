@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+        .btn{
+            width: 80px;
+            height: 30px;
+            background-color: aqua;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        test1
+    </div>
+    <div class="test">
+        test2
+    </div>
+    <div class="test">
+        test3
+    </div>
+    <div class="modal">
+        modal
+    </div>
+    
+
+    <div class="btn">BUTTON</div>
+    <div class="btn">BUTTON</div>
+
+    <script>
+        const testElm = document.getElementsByClassName('test')
+        const btnElm1 = document.getElementsByClassName('btn')[0]
+        const btnElm2 = document.getElementsByClassName('btn')[1]
+        const modalElm = document.getElementsByClassName('modal')[0]
+
+        let eView = true;
+
+        function isblock(isblock){
+            modalElm.style.display = isblock
+        }
+        function vToggle(){
+            if(eView == true){
+                changeColor("red")
+                isblock("none")
+                eView = false;
+            }else{
+                changeColor("blue")
+                isblock("block")
+                eView = true;
+            }
+        }
+
+        function changeColor(color){
+            for(let i=0; i<testElm.length; i++){
+                testElm[i].style.color = color
+            }            
+        }
+
+        btnElm1.addEventListener('click',vToggle)
+        
+        btnElm1.addEventListener('click',function(){
+            changeColor("red")
+        })
+        btnElm2.addEventListener('click',function(){
+            changeColor("blue")
+        })
+    </script>
+</body>
+</html>

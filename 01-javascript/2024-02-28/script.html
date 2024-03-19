@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var first = "Kim";
+        var last = "dong ill ";
+        var name = first + last;
+        document.write("안녕하세요 "+ name + "님 반갑습니다.");
+    </script>
+
+    <script>
+        var x = 5;
+        var y = 7;
+        var result;
+        var title;
+        
+        result = (x > y) ? x : y;
+        
+
+        if(x>y){
+            result=x
+            title="x"
+        }else{
+            result=y
+            title="y"
+        }
+
+        console.log("큰값은 "+ title+"이고 값은 "+result+"입니다.");
+        document.write(`큰값은 ${title}이고 값은 ${result}입니다.`)
+
+    </script>
+
+    <script>
+        var xNum = 10;
+        var myName = "홍길동"
+
+        xNum +=100;
+        console.log(xNum)
+
+        myName +="입니다"
+        myName += "!!"
+        console.log(myName)
+    </script>
+
+    <!-- <script>
+        var id,password;
+        id =prompt("ID 입력")
+        if(id == "admin"){
+            password = prompt("비밀번호 입력")
+            if(password == "1234"){
+                location.href="login.html"
+            }else{
+                location.href="error.html"
+            }
+        }else{
+            location.href="error.html"
+        }
+    </script> -->
+
+    <script>
+        function random(number){
+            return Math.floor(Math.random() * number)
+        }
+        console.log(random(255))
+        
+        function bgchange(){
+            const rndCol = 'rgb('+random(255) + ',' + random(255) + ',' + random(255) + ')'
+            console.log(rndCol)
+            document.body.style.backgroundColor = rndCol;
+        }
+        // bgchange()
+
+
+        var day;
+        const d = new Date().getDay();
+        console.log(d)
+        
+        switch(d){
+            case 3 :
+                day = "수요일"
+                document.body.style.backgroundColor = 'rgb('+34+','+243+','+244+')';
+                console.log('rgb('+34,243,244+')')
+                
+        }
+        document.write(day)
+    </script>
+</body>
+</html>

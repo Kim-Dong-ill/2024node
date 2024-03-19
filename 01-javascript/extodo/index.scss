@@ -1,0 +1,29 @@
+@import url(/globalcss/global.css);
+
+.container {
+  border: 1px solid #000;
+  width: 500px;
+  margin: 60px auto;
+  .inputWrap {
+    display: flex;
+    .inputText {
+      flex: 1;
+    }
+  }
+  .viewWrap {
+    .viewData {
+      li:hover,
+      li.viewList.active {
+        background-color: #afc27a;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        .viewIcon {
+          display: flex;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}
