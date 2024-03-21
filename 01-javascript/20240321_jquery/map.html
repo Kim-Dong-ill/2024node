@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="findMe">내 위치 보기</button>
+    <p class="status">아직 모름</p>
+    <div class="view"></div>
+
+    <div id="map" style="width: 800px; height: 800px"></div>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2abe9be42ad1bc0c2df885dee2ee92"
+    ></script>
+    <script>
+      var container = document.getElementById("map");
+
+      function myLocation() {
+        var options = {
+          center: new kakao.maps.LatLng(37.4734848, 126.8842496),
+          level: 3,
+        };
+        var map = new kakao.maps.Map(container, options);
+
+        // 마커가 표시될 위치입니다
+        var markerPosition = new kakao.maps.LatLng(37.4734848, 126.8842496);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+          position: markerPosition,
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+      }
+
+      myLocation();
+    </script>
+  </body>
+</html>
