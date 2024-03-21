@@ -11,6 +11,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <div class="container py-3">
@@ -20,18 +27,22 @@
           class="inp form-control"
           placeholder="검색어를 입력하세요..."
           name="query"
+          value="아이유"
         />
         <button class="btn btn-primary">Click</button>
       </form>
     </div>
     <div class="container">
-      <ul class="lists">
-        <a href=""></a>
-      </ul>
+      <ul class="lists"></ul>
+      <!-- page -->
+      <nav class="d-flex justify-content-center">
+        <ul class="pagination"></ul>
+      </nav>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
 
     <!-- script -->
     <script>
@@ -39,21 +50,20 @@
       const auth = "KakaoAK 38b3bdb221692744dfc1e35ea4a71888";
       const url = "https://dapi.kakao.com/v2/search/web";
 
+      let query;
+      let page = 1;
+      let size = 3; //한 페이지당 보여줄 문서 개수
+
       //function
       function onSubmit(e) {
         e.preventDefault();
-        let query = $(".inp").val().trim();
+        query = $(".inp").val().trim();
         // let query = $(this).find("input[name=query]").val();
         //자기 자신(search-form) 에서 name이 query인 얘를 찾느다.
         console.log(query);
 
         if (query != "") {
-          axios
-            .get(url, {
-              params: { query: query }, //기본 문법인 query:  ,Authorization:  에 변수 넣아준다.
-              headers: { Authorization: auth },
-            })
-            .then(onSuccess);
+          axios.get(url, getParams(query)).then(onSuccess);
         } else {
           $(".inp").focus(); //input에 커서 포커스
         }
@@ -64,22 +74,98 @@
         let v = res.data.documents;
         // console.log(v);
 
+        //pager
+        setPager(res.data.meta.pageable_count); //api에서 가져온 노출 가능한 게시물 데이터 개수
+
         let text = "";
         for (let i = 0; i < v.length; i++) {
           //   text += `<li>${v[i].title}</li>`;
           text += `<li>`;
           text += `<h4>${v[i].title}</h4>`;
           text += `<p>${v[i].contents}</p>`;
-          text += `<p>${v[i].datetime}</p>`;
+          text += `<p>${moment(v[i].datetime).format(
+            "YYYY-MM-DD HH:mm:ss"
+          )}</p>`;
           text += `<a href="${v[i].url}">${v[i].url}</a>`;
           text += `</li>`;
         }
-        console.log(text);
+        // console.log(text);
         $(".lists").html(text);
+      }
+
+      //api 가져올때 필요한 값을 함수로 만들었다. query는 여러군데 사용할꺼라서 전역변수로 만들어서 함수에 넣어 보냈다.
+      function getParams(query) {
+        return {
+          params: { query: query, size: size, page: page },
+          headers: { Authorization: auth },
+        };
+      }
+
+      function setPager(totalRecord) {
+        let pagerCnt = 5;
+        let totalPage = Math.ceil(totalRecord / size);
+
+        let startPage = Math.floor((page - 1) / pagerCnt) * pagerCnt + 1;
+        let endPage = startPage + pagerCnt - 1;
+
+        console.log(
+          "totalPage : ",
+          totalPage,
+          "startPage : ",
+          startPage,
+          "endPage : ",
+          endPage
+        );
+
+        let textNum = "";
+        if (startPage == 1) {
+          textNum = `<li class="page-item disabled
+          " >
+              <span class="page-link"
+                ><i class="fa-solid fa-arrow-left"></i
+              ></span>
+            </li>`;
+        } else {
+          textNum = `<li class="page-item
+          }" onclick="onPageClick(${startPage - 1})">
+              <span class="page-link"
+                ><i class="fa-solid fa-arrow-left"></i
+              ></span>
+            </li>`;
+        }
+        for (let i = startPage; i <= endPage; i++) {
+          textNum += `<li class="page-item ${
+            page == i ? "active" : ""
+          }" onclick="onPageClick(${i})"><span class="page-link">${i}</span></li>`;
+        }
+        if (endPage == totalPage) {
+          textNum += `<li class="page-item disabled">
+            <span class="page-link"
+              ><i class="fa-solid fa-arrow-right"></i
+            ></span>
+          </li>`;
+        } else {
+          textNum += `<li class="page-item" onclick="onPageClick(${
+            endPage + 1
+          })">
+            <span class="page-link"
+              ><i class="fa-solid fa-arrow-right"></i
+            ></span>
+          </li>`;
+        }
+
+        $(".pagination").html(textNum);
+      }
+
+      function onPageClick(index) {
+        page = Number(index);
+        axios.get(url, getParams(query)).then(onSuccess);
       }
 
       //event
       $(".search-form").submit(onSubmit);
+
+      $(".btn").trigger("click"); //문서를 onload하면 해당 버튼을 자동을 click해주겠다.
     </script>
   </body>
 </html>
