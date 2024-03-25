@@ -5,7 +5,6 @@ app.use(express.json());
 
 const dotenv = require("dotenv");
 const { phoneRouter } = require("./src/routes/phoneRoute.js");
-const { blogRouter } = require("./src/routes/blogRouter.js");
 dotenv.config();
 
 const server = async function () {
@@ -16,7 +15,7 @@ const server = async function () {
 
     app.use("/phone", phoneRouter);
 
-    app.use("/blog", blogRouter);
+    // app.use("/blog", blogRouter);
 
     app.listen(3000);
   } catch (error) {
