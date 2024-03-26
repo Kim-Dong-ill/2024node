@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const { imageRouter } = require("./src/routes/imageRouter");
+const { userRouter } = require("./src/routes/userRouter");
 
 app.use("/uploads", express.static("uploads"));
 
@@ -16,6 +17,9 @@ const server = async function () {
 
     //imageRouter
     app.use("/upload", imageRouter);
+
+    //userRouter
+    app.use("/user", userRouter);
 
     app.listen(3000);
   } catch (error) {
