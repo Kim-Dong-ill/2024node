@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      a {
+        color: inherit;
+        visibility: inherit;
+        text-decoration: none;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      img {
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      ul {
+        padding: 0px;
+      }
+      /* global end */
+
+      .tabmenu .menuWrap {
+        display: flex;
+        justify-content: space-between;
+        width: 400px;
+        border: 1px solid #000;
+      }
+      .menuWrap li {
+        padding: 10px;
+        border: 1px solid #000;
+      }
+      .imgWrap {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabmenu">
+      <ul class="menuWrap">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+      </ul>
+    </div>
+    <div class="imgSlide">
+      <ul class="imgWrap">
+        <li><img src="./images/img4.jpg" alt="" /></li>
+        <li><img src="./images/img5.jpg" alt="" /></li>
+        <li><img src="./images/img6.jpg" alt="" /></li>
+      </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    ]
+    <script>
+      $(".menuWrap li").click(function () {
+        let idx = $(this).index();
+        $(".menuWrap li").css("background-color", "");
+        $(this).css("background-color", "red");
+        console.log(idx);
+
+        $(".imgWrap li").hide();
+        $(".imgWrap li").eq(idx).show();
+      });
+    </script>
+  </body>
+</html>
