@@ -1,6 +1,3 @@
-const { Router } = require("express");
-const fileRouter = Router({ mergeParams: true });
-
 const multer = require("multer");
 const { v4: uuid } = require("uuid");
 const mime = require("mime-types");
@@ -16,11 +13,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage,
-  // fileFilter: function (req, file, cb) {},
+  // fileFilter:function(req,file,cb){}
 });
 
-fileRouter.post("/", upload.single("image"), async function (req, res) {
-  return res.send(req.file);
-});
-
-module.exports = { fileRouter };
+module.exports = { upload };

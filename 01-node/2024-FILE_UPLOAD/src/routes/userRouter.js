@@ -26,11 +26,7 @@ userRouter.put("/:userId", upload.single("image"), async function (req, res) {
     const image = { filename, originalname };
     console.log(image);
 
-    const user = await User.findByIdAndUpdate(
-      userId,
-      { filename, originalname },
-      { new: true }
-    );
+    const user = await User.findByIdAndUpdate(userId, { image }, { new: true });
 
     return res.send({ user });
   } catch (error) {
