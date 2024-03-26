@@ -39,6 +39,8 @@ const server = async function () {
         res.status(500).send({ error: error.message });
       }
     });
+
+    app.listen(3000);
   } catch (error) {
     res.status(500).send({ error: error.message });
   }
