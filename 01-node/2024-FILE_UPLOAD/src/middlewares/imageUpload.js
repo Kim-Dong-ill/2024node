@@ -16,18 +16,18 @@ const storage = multer.diskStorage({
 });
 const upload = multer({
   storage: storage,
-  fileFilter: function (req, file, cb) {
-    // if (file.mimetype === "image/jpeg") {
-    //   cb(null, true);
-    // } else {
-    //   cb(new Error("jpeg만 업로드 가능"), false);
-    // }
-    if (["image/jpeg"].includes(file.mimetype)) {
-      cb(null, true);
-    } else {
-      cb(new Error("jpeg만 업로드 가능"), false);
-    }
-  },
+  // fileFilter: function (req, file, cb) {
+  //   // if (file.mimetype === "image/jpeg") {
+  //   //   cb(null, true);
+  //   // } else {
+  //   //   cb(new Error("jpeg만 업로드 가능"), false);
+  //   // }
+  //   // if (["image/jpeg"].includes(file.mimetype)) {
+  //   //   cb(null, true);
+  //   // } else {
+  //   //   cb(new Error("jpeg만 업로드 가능"), false);
+  //   // }
+  // },
   limits: {
     fileSize: 1024 * 1024 * 3, //파일 용량 제한
   },
