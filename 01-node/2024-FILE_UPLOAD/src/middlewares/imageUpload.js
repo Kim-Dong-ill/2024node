@@ -28,9 +28,9 @@ const upload = multer({
   //   //   cb(new Error("jpeg만 업로드 가능"), false);
   //   // }
   // },
-  limits: {
-    fileSize: 1024 * 1024 * 3, //파일 용량 제한
-  },
+  // limits: {
+  //   fileSize: 1024 * 1024 * 3, //파일 용량 제한
+  // },
 });
 
 module.exports = { upload };
