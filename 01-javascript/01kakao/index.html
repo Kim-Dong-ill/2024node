@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="formWrap">
+      <form class="form">
+        <input class="input" type="text" name="query" />
+        <button>클릭</button>
+      </form>
+    </div>
+    <div>
+      <ul class="list"></ul>
+    </div>
+
+    <!-- script -->
+    <script>
+      $(".form").submit(onsubmit);
+
+      let query;
+      let size = 4;
+      let page = 1;
+      let url = "https://dapi.kakao.com/v2/search/web";
+      let auth = "KakaoAK 38b3bdb221692744dfc1e35ea4a71888";
+
+      function onsubmit(e) {
+        e.preventDefault();
+        query = $(".input").val().trim();
+        console.log("검색어 :" + query);
+        axios.get(url, getParams(query)).then(onSuccess).catch();
+      }
+
+      function getParams(query) {
+        return {
+          params: { query: query, size: size, page: page },
+          headers: { Authorization: auth },
+        };
+      }
+
+      function onSuccess(res) {
+        // console.log(res.data);
+        let v = res.data.documents;
+        console.log(v);
+        let text = "";
+        for (let i = 0; i < v.length; i++) {
+          text += `<li>`;
+          text += `<h4>${v[i].title}</h4>`;
+          text += ` <p>${v[i].contents}</p>`;
+          text += `<p>${v[i].datetime}</p>`;
+          text += `</li>`;
+        }
+        console.log("text :" + text);
+        $(".list").html(text);
+      }
+
+      axios
+        .get("https://dapi.kakao.com/v2/search/web", {
+          params: { query: "아이유", size: 50 },
+          headers: {
+            Authorization: "KakaoAK 38b3bdb221692744dfc1e35ea4a71888",
+          },
+        })
+        .then(function (v) {
+          console.log(v.data);
+        })
+        .catch();
+    </script>
+  </body>
+</html>

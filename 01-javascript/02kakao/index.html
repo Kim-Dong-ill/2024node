@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/globalcss/global.css" />
+  </head>
+  <body>
+    <div class="formWrap container">
+      <form class="form">
+        <input type="text" class="input" value="아이유" />
+        <button>클릭</button>
+      </form>
+    </div>
+    <div class="container">
+      <ul class="lists"></ul>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- script -->
+    <script>
+      let query;
+      let size = 4;
+      let page = 1;
+      let url = "https://dapi.kakao.com/v2/search/web";
+      let auth = "KakaoAK 38b3bdb221692744dfc1e35ea4a71888";
+
+      $(".form").submit(onSubmit);
+
+      function getParams(query) {
+        return {
+          params: { query: query, size: size, page: page },
+          headers: { Authorization: auth },
+        };
+      }
+
+      function onSuccess(res) {
+        // console.log(res.data);
+        let v = res.data.documents;
+        console.log(v);
+        let text = "";
+        for (let i = 0; i < v.length; i++) {
+          text += `<li>`;
+          text += `<h4>${v[i].title}</h4>`;
+          text += `<p>${v[i].contents}</p>`;
+          text += `<p>${v[i].datetime}</p>`;
+          text += `<a href="${v[i].url}">링크</a>`;
+          text += `</li>`;
+        }
+        $(".lists").html(text);
+      }
+
+      function onSubmit(e) {
+        e.preventDefault();
+
+        query = $(".input").val().trim();
+        console.log("검색어 : " + query);
+        if (query != "") {
+          axios.get(url, getParams(query)).then(onSuccess).catch();
+        } else {
+          $(".lists").html("검색어를 입력해주세요");
+          $(".input").focus();
+        }
+      }
+    </script>
+  </body>
+</html>
