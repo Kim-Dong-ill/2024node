@@ -1,0 +1,35 @@
+.text {
+  background-color: skyblue;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+.tabMenu {
+  display: flex;
+  gap: 10px;
+}
+.tabMenu li {
+  padding: 5px 16px;
+  border: 1px solid #000;
+  background: #eee;
+  cursor: pointer;
+}
+.tabMenu li.active {
+  background: #303030;
+  color: #fdfdfd;
+}
+.modals {
+  background: #93e493;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

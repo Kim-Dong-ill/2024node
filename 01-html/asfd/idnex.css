@@ -1,0 +1,22 @@
+@import url(/globalcss/global.css);
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.container {
+  border: 1px solid #000;
+  width: 100%;
+  height: 300vh;
+}
+.container p {
+  border: 1px solid #000;
+  /*
+  * Created with https://www.css-gradient.com
+  * Gradient link: https://www.css-gradient.com/?c1=f2dbe2&c2=ebe5ea&gt=l&gd=dtl
+  */
+  background: #f2dbe2;
+  background: linear-gradient(135deg, #f2dbe2, #ebe5ea);
+  padding: 5px 20px;
+  border-radius: 10px;
+  width: 150px;
+}/*# sourceMappingURL=idnex.css.map */

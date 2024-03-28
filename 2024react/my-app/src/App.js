@@ -1,29 +1,53 @@
+import { useState } from "react";
 import "./App.css";
 
-const a = "test입니다.";
-const hancss = { color: "blue", backgroundColor: "black", fontSize: 100 };
-function onMyClick() {
-  console.log("ggg");
-}
-
 function App() {
+  const [list, setList] = useState(["1. 첫번째", "2. 두번째", "3. 세번째"]);
+  const [tabNum, setTabNum] = useState(1);
+  const [modalView, setModalView] = useState(false);
+  const switchModalClick = () => {
+    setModalView(!modalView);
+  };
+
   return (
-    <div className="App">
-      <h3 className="title" style={hancss}>
-        {a}
-      </h3>
-      <button className="btn" onClick={onMyClick}>
-        test
-      </button>
-      <div className="btn btn-primary">button</div>
-      <div className="container">
-        <div className="row">
-          <div className="col">1</div>
-          <div className="col">2</div>
-          <div className="col">3</div>
-        </div>
+    <>
+      <div className="tabWrap">
+        <ul className="tabMenu">
+          <li
+            className={`${tabNum == 0 ? "active" : null}`}
+            onClick={() => {
+              setTabNum(0);
+            }}
+          >
+            tab1
+          </li>
+          <li
+            className={`${tabNum == 1 ? "active" : null}`}
+            onClick={() => {
+              setTabNum(1);
+            }}
+          >
+            tab2
+          </li>
+          <li
+            className={`${tabNum == 2 ? "active" : null}`}
+            onClick={() => {
+              setTabNum(2);
+            }}
+          >
+            tab3
+          </li>
+        </ul>
       </div>
-    </div>
+      <div>{list[tabNum]}</div>
+      <button onClick={switchModalClick}>모달창</button>
+      {modalView == true ? (
+        <div className="modals">
+          <h4>모달창</h4>
+          <p>모달창 내용...</p>
+        </div>
+      ) : null}
+    </>
   );
 }
 

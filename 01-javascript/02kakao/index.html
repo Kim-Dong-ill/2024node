@@ -66,9 +66,13 @@
       }
 
       function onSuccess(res) {
-        // console.log(res.data);
+        console.log(res.data);
         let v = res.data.documents;
         console.log(v);
+
+        //pagenation
+        setPager(res.data.meta.pageable_count);
+
         let text = "";
         for (let i = 0; i < v.length; i++) {
           text += `<li>`;
@@ -92,6 +96,15 @@
           $(".lists").html("검색어를 입력해주세요");
           $(".input").focus();
         }
+      }
+
+      function setPager(totalRecord) {
+        let page = 1;
+        let listCnt = 3;
+        let pagerCnt = 5;
+        let totalPage = Math.ceil(totalRecord / listCnt);
+        let startPage = Math.floor((page - 1) / pagerCnt) * pagerCnt + 1;
+        let endPage = startPage + pagerCnt - 1;
       }
     </script>
   </body>
