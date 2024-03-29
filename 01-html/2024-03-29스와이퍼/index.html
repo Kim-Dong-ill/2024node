@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      .slideImg {
+        /* background-color: pink; */
+        background-color: #0ff;
+        /* background-image: url(./images/sk_background_01.jpg); */
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slideImg img {
+        width: 100%;
+        /* display: block; */
+      }
+      .wrap {
+        border: 1px solid #000;
+        height: 400px;
+        /* width: 400px; */
+        overflow: hidden;
+      }
+      body {
+        background-color: skyblue;
+      }
+      .bg01 {
+        background-image: url(./images/sk_background_01.jpg);
+      }
+      .bg02 {
+        background-image: url(./images/sk_background_02.jpg);
+      }
+      .bg03 {
+        background-image: url(./images/sk_background_03.jpg);
+      }
+      .bg04 {
+        background-image: url(./images/sk_background_04.jpg);
+      }
+      .bg05 {
+        background-image: url(./images/sk_background_05.jpg);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Swiper -->
+    <div class="wrap">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper sliderWrap">
+          <div class="swiper-slide slideImg bg01">test1</div>
+          <div class="swiper-slide slideImg bg02">test2</div>
+          <div class="swiper-slide slideImg bg03">test3</div>
+          <div class="swiper-slide slideImg bg04">test4</div>
+          <div class="swiper-slide slideImg bg05">test5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {});
+    </script>
+  </body>
+</html>
