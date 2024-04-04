@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      a {
+        color: inherit;
+        visibility: inherit;
+        text-decoration: none;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      img {
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      ul {
+        padding: 0px;
+      }
+      .box {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        right: 0;
+        top: 0;
+      }
+      .top {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        right: 10px;
+        bottom: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: skyblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      body {
+        height: 300vh;
+      }
+      .wrap {
+        position: sticky;
+        transition: 0.35s;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        border: 1px solid #000;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 16px;
+      }
+      .wrap li a {
+        display: flex;
+        height: 100%;
+        padding: 0 16px;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrap li {
+        transition: 0.35s;
+      }
+      .wrap li:hover {
+        background-color: #424242;
+        color: white;
+        border-radius: 10px;
+      }
+      .wrap ul {
+        gap: 50px;
+        display: flex;
+        height: 100%;
+      }
+      .wrap.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #696969;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">scroll:<span class="scrollY">0</span></div>
+    <div class="wrapper">
+      <p>dong 001</p>
+      <p>dong 002</p>
+      <p>dong 003</p>
+      <p>dong 004</p>
+      <p>dong 005</p>
+      <p>dong 006</p>
+      <p>dong 007</p>
+      <p>dong 008</p>
+      <p>dong 009</p>
+      <p>dong 010</p>
+      <p>dong 011</p>
+      <p>dong 012</p>
+      <p>dong 013</p>
+      <p>dong 014</p>
+      <p>dong 015</p>
+      <p>dong 016</p>
+      <p>dong 017</p>
+      <p>dong 018</p>
+      <p>dong 019</p>
+      <p>dong 020</p>
+      <p>dong 021</p>
+      <p>dong 022</p>
+      <p>dong 023</p>
+      <p>dong 024</p>
+      <p>dong 025</p>
+      <p>dong 026</p>
+      <p>dong 027</p>
+      <p>dong 028</p>
+      <p>dong 029</p>
+      <p>dong 030</p>
+      <p>dong 031</p>
+      <p>dong 032</p>
+      <p>dong 033</p>
+      <p>dong 034</p>
+      <p>dong 035</p>
+      <p>dong 036</p>
+      <p>dong 037</p>
+      <p>dong 038</p>
+      <p>dong 039</p>
+      <p>dong 040</p>
+      <p>dong 041</p>
+      <p>dong 042</p>
+      <p>dong 043</p>
+      <p>dong 044</p>
+      <p>dong 045</p>
+      <p>dong 046</p>
+      <p>dong 047</p>
+      <p>dong 048</p>
+      <p>dong 049</p>
+      <p>dong 050</p>
+      <div class="wrap">
+        <h1>logo</h1>
+        <ul>
+          <li><a href="#">menu1</a></li>
+          <li><a href="#">menu2</a></li>
+          <li><a href="#">menu3</a></li>
+          <li><a href="#">menu4</a></li>
+          <li><a href="#">menu5</a></li>
+        </ul>
+      </div>
+      <p>dong 051</p>
+      <p>dong 052</p>
+      <p>dong 053</p>
+      <p>dong 054</p>
+      <p>dong 055</p>
+      <p>dong 056</p>
+      <p>dong 057</p>
+      <p>dong 058</p>
+      <p>dong 059</p>
+      <p>dong 060</p>
+      <p>dong 061</p>
+      <p>dong 062</p>
+      <p>dong 063</p>
+      <p>dong 064</p>
+      <p>dong 065</p>
+      <p>dong 066</p>
+      <p>dong 067</p>
+      <p>dong 068</p>
+      <p>dong 069</p>
+      <p>dong 070</p>
+      <p>dong 071</p>
+      <p>dong 072</p>
+      <p>dong 073</p>
+      <p>dong 074</p>
+      <p>dong 075</p>
+      <p>dong 076</p>
+      <p>dong 077</p>
+      <p>dong 078</p>
+      <p>dong 079</p>
+      <p>dong 080</p>
+      <p>dong 081</p>
+      <p>dong 082</p>
+      <p>dong 083</p>
+      <p>dong 084</p>
+      <p>dong 085</p>
+      <p>dong 086</p>
+      <p>dong 087</p>
+      <p>dong 088</p>
+      <p>dong 089</p>
+      <p>dong 090</p>
+      <p>dong 091</p>
+      <p>dong 092</p>
+      <p>dong 093</p>
+      <p>dong 094</p>
+      <p>dong 095</p>
+      <p>dong 096</p>
+      <p>dong 097</p>
+      <p>dong 098</p>
+      <p>dong 099</p>
+      <p>dong 100</p>
+    </div>
+    <div class="top">top</div>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      let wrapTop = $(".wrap").offset().top;
+      console.log(wrapTop);
+
+      $(window).scroll(function () {
+        let scrollY = window.pageYOffset;
+        $(".scrollY").html(scrollY);
+        console.log(scrollY);
+        // if (wrapTop < scrollY) {
+        //   console.log("커짐");
+        //   $(".wrap").addClass("fixed");
+        // } else {
+        //   console.log("작음");
+        //   $(".wrap").removeClass("fixed");
+        // }
+      });
+    </script>
+  </body>
+</html>
