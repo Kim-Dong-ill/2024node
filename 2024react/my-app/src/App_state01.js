@@ -1,28 +1,18 @@
-import React, { useState } from "react";
-import "./App.css";
+import React, {useState} from "react";
+import "./assets/css/style.css";
 
 function App() {
-  const [active, setActive] = useState("btn");
-  const [onClickBtn, setOnClickBtn] = useState(false);
-
-  const [test, setTest] = useState("test");
+  const [test, setTest] = useState("hanyong5");
   function testChange(name) {
-    if (onClickBtn == false) {
-      setTest(name);
-      setActive("btn active");
-      setOnClickBtn(!onClickBtn);
-    } else {
-      setTest(name);
-      setActive("btn");
-      setOnClickBtn(!onClickBtn);
-    }
+    // alert("test");
+    setTest(name);
   }
   console.log("ok");
   return (
     <div>
       <h1>{test}</h1>
       <button
-        className={active}
+        className="btn info"
         onClick={() => {
           testChange("홍길동");
         }}
@@ -30,7 +20,7 @@ function App() {
         클릭
       </button>
       <button
-        className="btn"
+        className="btn primary"
         onClick={() => {
           testChange("이순신");
         }}

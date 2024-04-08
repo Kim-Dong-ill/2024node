@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #444;
+}
+ul,
+li {
+  list-style: none;
+}
+
+h1 {
+  background: skyblue;
+}
+
+.logo {
+  width: 200px;
+}
+
+/* .flex {
+  display: flex;
+} */
+
+.btn {
+  padding: 10px 20px;
+  /* border: 0 none; */
+  /* background-color: skyblue; */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+  background-color: blue;
+  border: 1px solid #fff;
+  color: white;
+  transform: translate(-5px, -5px);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn.primary {
+  background-color: skyblue;
+}
+.btn.primary:hover {
+  background-color: pink;
+}
+
+.btn.info {
+  background-color: green;
+}
+.btn.info:hover {
+  background-color: red;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  padding: 10px 16px;
+}
+.menu li.active {
+  background: skyblue;
+}
+
+.wrap {
+  /* border: 1px solid #000; */
+  /* border-width: 1px;
+  border-style: solid;
+  border-color: #ccc; */
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.modal {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: pink;
+  border-radius: 10px;
+  padding: 16px;
+}
+.modal .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.modalWrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  left: 0;
+  top: 0;
+  /* opacity: 0.3; */
+}
+
+.viewList li {
+  margin-bottom: 10px;
+  background: #efefef;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.viewList li:hover {
+  background: #ddd;
+}
+
+$primary: skyblue;
+$hover: blue;
+$fontColor-gary: #444;
+$fontColor-white: white;
+
+.menupan {
+  li {
+    background: $primary;
+    padding: 10px;
+    border-radius: 10px;
+    color: $fontColor-white;
+    cursor: pointer;
+    &:hover {
+      background: $hover;
+    }
+  }
+}
+
+$primary-color: #099cf1;
+
+.pagination {
+  ul {
+    display: flex;
+  }
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.d-flex {
+  display: flex;
+  gap: 10px;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.bg-primary {
+  background: $primary-color;
+}
+
+.topMenu {
+  _background: blue;
+  li {
+    height: 100%;
+  }
+  a {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    &.active {
+      background: skyblue;
+    }
+  }
+}
+
+.visual,
+.subVisual {
+  height: 300px;
+  background: rgb(155, 175, 183);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subPro {
+  h3 {
+    padding: 10px 0;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  content {
+    padding: 10px;
+  }
+}
+
+.proList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  li {
+    background-color: pink;
+    width: 20%;
+    flex: 1 0 auto;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.footerWrap {
+  background: rgb(146, 146, 80);
+  padding: 20px 0;
+}

@@ -1,47 +1,48 @@
-import { useState } from "react";
+/* eslint-disable */
+import {useState} from "react";
 import "./App.css";
 
 function App() {
-  const text = "tstestest";
-  const styleText = { fontSize: "2rem", color: "red" };
+  const 내용 = "testtesttest";
+  const styleText = {fontSize: "2em", color: "red"};
   const btnClick = function () {
-    alert("a");
+    console.log("test");
   };
 
   const [title, setTitle] = useState(["seoul", "busan", "daegu"]);
-
-  const changeData = () => {
-    const newArray = [...title];
-    newArray[0] = "inchon";
+  const changData = () => {
+    const newArray = [...title]; // ["seoul", "busan", "daegu"]
+    newArray[0] = "inchon"; // ["inchon", "busan", "daegu"]
     setTitle(newArray);
   };
 
-  const [num, setNum] = useState(0); //num을 선언할때 useState의 값으로 선언하고 setNum만든다
+  const [num, setNum] = useState(0);
   const changeNum = () => {
     setNum(1);
   };
-  const originNum = () => {
+  const zeroNum = () => {
     setNum(0);
   };
 
   const [myNum, setMyNum] = useState(0);
-  const like = () => {
-    setMyNum(myNum + 1);
-  };
   return (
     <>
       {num}
       <div className="text" style={styleText}>
-        {title}
-        <button onClick={changeData}>클릭</button>
+        <button onClick={changData}>클릭</button>
       </div>
 
-      <button onClick={changeNum}>클릭Num</button>
-      <button onClick={originNum}>원래값</button>
+      <button onClick={changeNum}>클릭넘</button>
+      <button onClick={zeroNum}>원래값</button>
 
       <div>
-        {title[0]}{" "}
-        <span onClick={like} style={{ cursor: "pointer" }}>
+        {title[0]}
+        <span
+          onClick={() => {
+            setMyNum(myNum + 1);
+          }}
+          style={{cursor: "pointer"}}
+        >
           ❤
         </span>
         {myNum}

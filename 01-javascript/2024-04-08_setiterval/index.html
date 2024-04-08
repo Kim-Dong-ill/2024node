@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        transition: 0.35s;
+      }
+      .box.view {
+        opacity: 0;
+        height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <button onclick="stopBtn()">멈춤</button>
+    <button onclick="startBtn()">시작</button>
+    <script>
+      let move = 10; //기본값
+      let step = 2; //단위초 마다 움직임
+      let timeId; //전역변수로 지정
+      let doubleClick = true; //이중 클릭 금지
+
+      setTimeout(function () {
+        console.log("timeout");
+        document.querySelector(".box").classList.add("view");
+      }, 1000);
+
+      function startBtn() {
+        if (doubleClick == true) {
+          timeId = setInterval(function () {
+            move += step;
+            console.log(move);
+          }, 1000);
+          doubleClick = false;
+        } else {
+        }
+      }
+
+      function stopBtn() {
+        clearInterval(timeId);
+        console.log("move stop");
+        doubleClick = true;
+      }
+    </script>
+  </body>
+</html>

@@ -6,13 +6,13 @@ function ModalView(props) {
     <>
       <div className="modalWrap">
         <div className="modal">
-          <div onClick={props.onClick} className="modalClose">
-            {/* modal창에 x 누르면 onclick함수 실행하면서 위에서 가져온 {modalClose}기능 실행 */}
-            X
-          </div>
+          <button onClick={props.onclick} className="close">
+            닫기
+          </button>
+
           <div className="modalBody">
-            <h3>{props.viewListdata[props.vNum].title}</h3>
-            <p>{props.viewListdata[props.vNum].content}</p>
+            <h3>{props.viewListData[props.vNum].title}</h3>
+            <p>{props.viewListData[props.vNum].content}</p>
           </div>
         </div>
       </div>
