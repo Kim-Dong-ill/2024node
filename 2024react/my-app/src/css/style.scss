@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: white;
+  transition: 0.35s;
+}
+.btn:hover {
+  background-color: #000;
+  color: white;
+}
+.btn.active {
+  background-color: green;
+  color: white;
+}
+
+.menu {
+  display: flex;
+}
+.menu li {
+  padding: 10px 16px;
+}
+.menu li.active {
+  background-color: skyblue;
+}
+
+.wrap {
+  padding: 20px;
+  border: 1px solid #000;
+}
+.modal {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #000;
+  background-color: #494949;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.modalWrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: #0000008a;
+}
+.modalClose {
+  text-align: end;
+}
+.modalBody h3 {
+  margin-bottom: 20px;
+}
+@mixin dflex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todoWrap {
+  .todoModal {
+    li {
+      background-color: rgb(57, 65, 68);
+      padding: 10px;
+      border-radius: 10px;
+      color: white;
+      margin-bottom: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      &:hover {
+        background-color: #0b6e29;
+      }
+    }
+  }
+}
+
+.listback {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(109, 109, 109, 0.589);
+  @include dflex;
+  .listModalWrap {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    font-size: large;
+    font-weight: bold;
+  }
+}
+
+.axiosModalWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #4141419d;
+  @include dflex;
+  .axiosModal {
+    width: 300px;
+    height: 350px;
+    background-color: #fff;
+    .modalClose {
+    }
+    .modalTitle {
+      margin-bottom: 30px;
+    }
+    .modalBody {
+    }
+  }
+}
+.lodingWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #3d3d3d;
+  @include dflex;
+  .lodingModal {
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+    @include dflex;
+  }
+}

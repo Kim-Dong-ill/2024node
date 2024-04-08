@@ -4,101 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      a {
-        color: inherit;
-        visibility: inherit;
-        text-decoration: none;
-      }
-
-      li {
-        list-style: none;
-      }
-
-      img {
-        margin: 0;
-        padding: 0;
-        vertical-align: top;
-      }
-
-      .flex {
-        display: flex;
-      }
-
-      ul {
-        padding: 0px;
-      }
-      .box {
-        position: fixed;
-        width: 100px;
-        height: 100px;
-        background-color: pink;
-        right: 0;
-        top: 0;
-      }
-      .top {
-        position: fixed;
-        width: 100px;
-        height: 100px;
-        right: 10px;
-        bottom: 10px;
-        border-radius: 50%;
-        cursor: pointer;
-        background-color: skyblue;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      body {
-        height: 300vh;
-      }
-      .wrap {
-        position: sticky;
-        transition: 0.35s;
-        width: 100%;
-        height: 80px;
-        display: flex;
-        border: 1px solid #000;
-        align-items: center;
-        justify-content: space-between;
-        padding: 5px 16px;
-      }
-      .wrap li a {
-        display: flex;
-        height: 100%;
-        padding: 0 16px;
-        justify-content: center;
-        align-items: center;
-      }
-      .wrap li {
-        transition: 0.35s;
-      }
-      .wrap li:hover {
-        background-color: #424242;
-        color: white;
-        border-radius: 10px;
-      }
-      .wrap ul {
-        gap: 50px;
-        display: flex;
-        height: 100%;
-      }
-      .wrap.fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 60px;
-        background-color: #696969;
-        color: white;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="box">scroll:<span class="scrollY">0</span></div>
@@ -226,13 +133,15 @@
         let scrollY = window.pageYOffset;
         $(".scrollY").html(scrollY);
         console.log(scrollY);
-        // if (wrapTop < scrollY) {
-        //   console.log("커짐");
-        //   $(".wrap").addClass("fixed");
-        // } else {
-        //   console.log("작음");
-        //   $(".wrap").removeClass("fixed");
-        // }
+      });
+
+      if ($("body").height() / 2 <= scrollY) {
+        $(".top").fadeIn();
+      } else {
+        $(".top").fadeOut();
+      }
+      $(".top").click(function () {
+        $("html,body").animate({ scrollTop: 0 }, 3000);
       });
     </script>
   </body>

@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  visibility: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+.flex {
+  display: flex;
+}
+
+ul {
+  padding: 0px;
+}
+
+$primary-color: skyblue;
+$sec-color: pink;
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: $primary-color;
+}
+.box1 {
+  width: 100px;
+  height: 100px;
+  background-color: $sec-color;
+  &.active {
+    background-color: red;
+  }
+}
